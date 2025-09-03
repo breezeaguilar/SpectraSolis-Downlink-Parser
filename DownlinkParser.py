@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from ImageCompression import *
+# from ImageCompression import *
 
 GREEN = '\033[32m'
 RED = '\033[31m'
@@ -19,10 +19,10 @@ soup = BeautifulSoup(response.text, 'html.parser')
 div = soup.find('div', class_ = 'elementor-widget-container')
 
 thread_list = soup.find_all('td')
-print(thread_list)
+# print(thread_list)
 
 #NOTE: 3 for the most recent log, 6 for testing
-log_difference = 3
+log_difference = 12
 downlink_thread = str(thread_list[len(thread_list) - log_difference])
 
 _, _, downlink_link = downlink_thread.partition("href=\"")
@@ -52,7 +52,7 @@ for raw in downlink_data:
     header = raw[:idx]
     payload = raw[idx:].decode("utf-8", errors="ignore").strip()
     
-    print(f"{RED}Showing line {logIdx} of {len(downlink_data)}{RESET}")
+    print(f"{RED}Showing line {logIdx}{RESET}")
     print("Header: SP", header)
     print(f"Message: {GREEN}{payload}{RESET}")
     print()
