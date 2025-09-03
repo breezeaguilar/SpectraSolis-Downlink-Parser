@@ -22,7 +22,7 @@ thread_list = soup.find_all('td')
 # print(thread_list)
 
 #NOTE: 3 for the most recent log, 6 for testing
-log_difference = 12
+log_difference = 3
 downlink_thread = str(thread_list[len(thread_list) - log_difference])
 
 _, _, downlink_link = downlink_thread.partition("href=\"")
